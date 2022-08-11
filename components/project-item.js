@@ -52,7 +52,7 @@ export default function ProjectItem({data}){
                     <div className='titles flex flex-row'>
                         <p className='mr-2'>{category}</p>
                             {tags.map((aTag) => (
-                                <p className='mr-2 opacity-80'>// {aTag.name}</p>
+                                <p className='mr-2 opacity-80' key={aTag.id}>// {aTag.name}</p>
                             )
                             )}
                     </div>
