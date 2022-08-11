@@ -38,16 +38,8 @@ body{
 }
 
 .titles>p{
-    padding-top: 16px;
     font-size: 14px;
     font-weight: 600;
-}
-
-.textContainer{
-    margin-left: 16px;
-    margin-right: 16px;
-
-    color: white;
 }
 
 .projectTitle{
@@ -55,9 +47,4 @@ body{
     font-weight: 600;
     padding-top:4px;
     padding-bottom:4px;
-}
-
-.date{
-    padding-bottom: 16px;
-    font-size: 14px;
 }
