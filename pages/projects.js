@@ -4,15 +4,22 @@ import ProjectItem from "../components/project-item";
 import { data } from "autoprefixer";
 
 //projects를 넘게 받고, 파싱해서 쓰기
-export default function Projects({projects}){
+export default function Projects({projects, db}){
     // console.log(projects)
     // console.log(projects.results)
+
+    const categories = db.properties.Category.select.options.map((aCategory) => (
+        " // " + aCategory.name
+    ))
+
+
     return(
         <>
             <Layout>
                 <div className="flex flex-col place-items-center">
-                    <h1 className="mb-4 font-bold">Total {projects.results.length}</h1>
-                    {/* <h1 className="mb-4 font-bold">Total {results.length}</h1> */}
+                    <h1 className="mb-4 font-bold">Total {projects.results.length}</h1> 
+                    <h1 className="text-xs mb-4">{categories}</h1>
+
 
                     {projects.results.map((aProject)=>(
                         <ProjectItem key={aProject.id} data={aProject}/> //1:55:54
@@ -52,10 +59,25 @@ export async function getServerSideProps() {
     //결과를 json으로 만들어봄
     const projects = await res.json()
 
+    const options2 = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Notion-Version': '2022-02-22',
+            Authorization: `Bearer ${TOKEN}`}
+      };
+      
+    const res2 = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}`, options2)
+    const db = await res2.json()
 
+    console.log(db)
+
+    //   return{
+    //       props: {db}
+    //   }
 
 
   return {
-    props: {projects}, // will be passed to the page component as props
+    props: {projects, db}, // will be passed to the page component as props
   }
 }
