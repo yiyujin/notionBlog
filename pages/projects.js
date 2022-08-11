@@ -22,7 +22,7 @@ export default function Projects({projects}){
 }
 
 //데이터 가져오기
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	//여기에 노션 REQUEST 코드를 넣어준다
     const options = {
         method: 'POST',
