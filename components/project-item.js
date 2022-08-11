@@ -5,7 +5,10 @@ import Link from 'next/link'
 export default function ProjectItem({data}){
 
     // 데이터 정리
-    const projectTitle = data.properties.Name.id
+    const test = data.properties.Name.title
+    // console.log(data.properties.Name.title.length) 
+
+    let projectTitle;
 
     const date = data.properties.Date.formula.string
 
@@ -16,6 +19,12 @@ export default function ProjectItem({data}){
     const days = data.properties.Days.formula.string
 
     const pageId = data.id
+
+    if(test == 0){
+        projectTitle = "Untitled"
+    }else{
+        projectTitle = data.properties.Name.title[0].plain_text
+    }
 
     let imgSrc;
 
@@ -72,11 +81,11 @@ export default function ProjectItem({data}){
             
             <div className={cateColor}>
                 <div className='textContainer pt-4 ml-4 mr-4 text-white'>
-                    <div className='titles flex flex-row'>
-                        <Image src={icon} width="16px" height="16px" objectFit='contain'></Image>
-                        <p className='ml-1 mr-2'>{category}</p>
+                    <div className='titles flex flex-row align-middle'>
+                        <Image src={icon} width="14px" height="14px" objectFit='contain'></Image>
+                        <p className='ml-1 mr-2 text-sm font-medium'>{category}</p>
                             {tags.map((aTag) => (
-                                <p className='mr-2 opacity-80' key={aTag.id}>{"// " + aTag.name}</p>
+                                <p className='mr-2 opacity-80 text-sm font-medium' key={aTag.id}>{"// " + aTag.name}</p>
                             )
                             )}
                     </div>
