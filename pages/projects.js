@@ -5,7 +5,7 @@ import { data } from "autoprefixer";
 
 //projects를 넘게 받고, 파싱해서 쓰기
 export default function Projects({projects}){
-    console.log(projects)
+    // console.log(projects)
     // console.log(projects.results)
     return(
         <>
@@ -47,10 +47,10 @@ export async function getServerSideProps() {
     };
     
     //데이터가 받아질 때까지 기다리기
-    let res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options)
+    const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options)
 
     //결과를 json으로 만들어봄
-    let projects = await res.json()
+    const projects = await res.json()
 
 
 

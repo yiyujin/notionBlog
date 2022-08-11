@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function ProjectItem({data}){
 
     // 데이터 정리
-    const projectTitle = data.properties.Name.title[0].plain_text
+    const projectTitle = data.properties.Name.id
 
     const date = data.properties.Date.formula.string
 
