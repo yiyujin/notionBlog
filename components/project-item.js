@@ -74,7 +74,7 @@ export default function ProjectItem({data}){
                 <div className='textContainer pt-4 ml-4 mr-4 text-white'>
                     <div className='titles flex flex-row'>
                         <Image src={icon} width="16px" height="16px" objectFit='contain'></Image>
-                        <p className='ml-2 mr-2'>{category}</p>
+                        <p className='ml-1 mr-2'>{category}</p>
                             {tags.map((aTag) => (
                                 <p className='mr-2 opacity-80' key={aTag.id}>{"// " + aTag.name}</p>
                             )
