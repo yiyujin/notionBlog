@@ -45,10 +45,18 @@ export async function getServerSideProps() {
         body: JSON.stringify({
             sorts: [
                 {
-                    "property" : "Edited",
+                    "property" : "Created",
                     "direction" : "descending"
                 }
             ],
+            filter:{
+                "property" : "Status",
+                "checkbox": {
+                    "equals" : true
+                }
+            }
+            
+
             // start_cursor: projects.next_cursor
         })
     };
