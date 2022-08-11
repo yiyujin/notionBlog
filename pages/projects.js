@@ -12,7 +12,7 @@ export default function Projects({projects}){
                     <h1 className="mb-4 font-bold">Total {projects.results.length}</h1>
 
                     {projects.results.map((aProject)=>(
-                        <ProjectItem key = {aProject.id} data = {aProject}/>
+                        <ProjectItem key={aProject.id} data={aProject}/> //1:55:54
                         )
                     )}
                 </div>
