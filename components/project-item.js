@@ -3,7 +3,7 @@ import Image from 'next/image'
 //project.js에서 aProject가 data.
 export default function ProjectItem({data}){
 
-    //데이터 정리
+    // 데이터 정리
     const projectTitle = data.properties.Name.title[0].plain_text
 
     const date = data.properties.Date.formula.string
@@ -52,7 +52,7 @@ export default function ProjectItem({data}){
                     <div className='titles flex flex-row'>
                         <p className='mr-2'>{category}</p>
                             {tags.map((aTag) => (
-                                <p className='mr-2 opacity-80' key={aTag.id}>// {aTag.name}</p>
+                                <p className='mr-2 opacity-80' key={aTag.id}>{aTag.name}</p>
                             )
                             )}
                     </div>
