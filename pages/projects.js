@@ -49,8 +49,6 @@ export async function getStaticProps() {
     //결과를 json으로 만들어봄
     const projects = await res.json()
 
-    // console.log(projects)
-
   return {
     props: {projects}, // will be passed to the page component as props
   }

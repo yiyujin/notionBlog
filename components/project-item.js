@@ -53,7 +53,8 @@ export default function ProjectItem({data}){
                         <p className='mr-2'>{category}</p>
                             {tags.map((aTag) => (
                                 <p className='mr-2 opacity-80'>// {aTag.name}</p>
-                            ))}
+                            )
+                            )}
                     </div>
 
                     <h1 className='projectTitle'>{projectTitle}</h1>
