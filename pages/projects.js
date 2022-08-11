@@ -38,7 +38,7 @@ export async function getServerSideProps() {
         body: JSON.stringify({
             sorts: [
                 {
-                    "property" : "Created",
+                    "property" : "Edited",
                     "direction" : "descending"
                 }
             ],
