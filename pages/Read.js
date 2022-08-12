@@ -6,10 +6,6 @@ import Link from 'next/link'
 
 //projects를 넘게 받고, 파싱해서 쓰기
 export default function Projects({projects, db}){
-    // console.log(projects)
-    // console.log(projects.results)
-    
-
     const categories = db.properties.Category.select.options.map((aCategory) => (
         <Link href={`/${aCategory.name}`}>
             <p className="mr-4" key={aCategory.name}>{aCategory.name}</p>
@@ -53,11 +49,21 @@ export async function getServerSideProps() {
                     "direction" : "descending"
                 }
             ],
-            filter:{
-                "property" : "Status",
-                "checkbox": {
-                    "equals" : true
-                }
+            filter : {
+                "and": [
+                    {
+                        "property": "Status",
+                        "checkbox": {
+                            "equals": true
+                        }
+                    },
+                    {
+                        "property": "Category",
+                        "select": {
+                            "equals" : "Read"
+                        }
+                    },
+                ]
             }
             
 
@@ -81,9 +87,6 @@ export async function getServerSideProps() {
       
     const res2 = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}`, options2)
     const db = await res2.json()
-
-    //필터 별  API 호출
-
 
   return {
     props: {projects, db}, // will be passed to the page component as props

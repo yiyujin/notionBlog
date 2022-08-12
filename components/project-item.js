@@ -20,6 +20,8 @@ export default function ProjectItem({data}){
 
     const pageId = data.id
 
+    const url = data.url
+
     if(test == 0){
         projectTitle = "Untitled"
     }else{
@@ -72,7 +74,7 @@ export default function ProjectItem({data}){
 
     return(
         <>
-        <Link href={`/projects/${pageId}`}>
+        <Link href={`${data.url}`}>
         <div className="projectItem bg-white mb-4 rounded-3xl drop-shadow-sm">
 
             <div className='imgContainer'>
