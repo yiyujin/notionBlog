@@ -11,7 +11,7 @@ export default function Projects({projects, db}){
     
 
     const categories = db.properties.Category.select.options.map((aCategory) => (
-        <Link href={`/${aCategory.name}`}>
+        <Link href={`/${aCategory.name}`} key={aCategory.name}>
             <p className="mr-4" key={aCategory.name}>{aCategory.name}</p>
         </Link>
     ))
