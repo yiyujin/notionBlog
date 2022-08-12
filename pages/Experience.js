@@ -7,7 +7,7 @@ import Link from 'next/link'
 //projects를 넘게 받고, 파싱해서 쓰기
 export default function Projects({projects, db}){
     const categories = db.properties.Category.select.options.map((aCategory) => (
-        <Link href={`/${aCategory.name}`}>
+        <Link href={`/${aCategory.name}`} key={aCategory.name}>
             <p>{" // " + aCategory.name}</p>
         </Link>
     ))
